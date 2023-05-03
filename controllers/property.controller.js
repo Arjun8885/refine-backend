@@ -37,7 +37,6 @@ const getAllProperties = async (req, res) => {
         const count = await Property.countDocuments({ query });
 
         const properties = await Property.find(query)
-            .limit(_end)
             .skip(_start)
             .sort({ [_sort]: _order });
 
