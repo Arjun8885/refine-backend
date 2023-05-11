@@ -1,4 +1,19 @@
 import User from '../mongodb/models/user.js';
+const createReview = async (req,res)=>{
+    const filter={email:req.body.email}
+    const attributestoUpdate={review:req.body.review,rating:req.body.rating}
+    try{
+        const review=await User.findOneAndUpdate(filter,attributestoUpdate,{
+            new: true
+          })
+          res.status(200).json(review)
+
+    } catch(error){
+        res.status(500).json({message:error.message})   
+
+    }
+
+}
 const getAllUsers = async (req,res) => {
     try {
         const users=await User.find({}).limit(req.query._end);
@@ -46,5 +61,6 @@ export{
     getAllUsers,
     createUser,
     getUserInfoByID,
+    createReview
 
 }
