@@ -11,8 +11,8 @@ async function createAdmin(req, res) {
     return res.status(401).send("Incorrect password");
   }
 return res.status(200).json({
-    adminName:result.email,
-    loggedinStatus:"success"
+    adminName:result.name,
+  
 })
 }
 export { createAdmin };

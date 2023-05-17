@@ -1,7 +1,7 @@
 import User from '../mongodb/models/user.js';
 const createReview = async (req,res)=>{
     const filter={email:req.body.email}
-    const attributestoUpdate={review:req.body.review,rating:req.body.rating}
+    const attributestoUpdate={review:req.body.review,rating:req.body.rating,isActive:req.body.isActive}
     try{
         const review=await User.findOneAndUpdate(filter,attributestoUpdate,{
             new: true

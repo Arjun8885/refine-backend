@@ -5,7 +5,8 @@ const UserSchema = new mongoose.Schema({
     avatar:{type:String,required:true},
     allProperties:[{type:mongoose.Schema.Types.ObjectId,ref: 'Property'}],
     review:{type:String},
-    rating:{type:Number}
+    rating:{type:Number},
+    isActive:{type:Boolean}
 });
 const userModel=mongoose.model('User',UserSchema);
 export default userModel;
